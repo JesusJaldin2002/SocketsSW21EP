@@ -4,12 +4,12 @@ import { Server } from "socket.io";
 import { createServer } from "node:http";
 import cors from "cors";
 
-const port = process.env.PORT ?? 4444; // Cambiar esto si voy a probar en localhost
+const port = process.env.PORT ?? 80; // Cambiar esto si voy a probar en localhost
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://192.168.0.11:8000",
+    origin: "http://52.4.121.161",
     methods: ["GET", "POST"],
   },
 });
@@ -290,7 +290,7 @@ app.post("/task-sprint-changed", (req, res) => {
 // Habilitar CORS para todas las solicitudes
 app.use(
   cors({
-    origin: "http://192.168.0.11:8000",
+    origin: "http://52.4.121.161",
     methods: ["GET", "POST"],
   })
 );
